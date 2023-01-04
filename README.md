@@ -16,6 +16,7 @@ Provide language interoperability i.e., provides many languages which combine al
 ![dotnet stack](https://github.com/MangeshAru/dotnet/blob/main/dotnet%20framework%20stack.png)
 
 ## Compilation Process
+![compilationProcess](https://github.com/MangeshAru/dotnet/blob/main/compilationProcessDotNet.png)
    It is done in two parts
     1.	Language compilers – compiler time process
     2.	JIT – runtime process
