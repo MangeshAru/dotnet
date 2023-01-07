@@ -60,6 +60,81 @@ Runtime Process
        }
       
 }
+Understanding the Object Class in C#:
+The Object class is the Superclass of all dot net types. That means, all the types in .NET Framework are inherited directly or indirectly from the Object class. 
+Because of this inheritance, every type in .NET inherits the ToString() method from the Object class. If you go to the definition of Object class, then you will 
+see that the ToString() method is defined as a Virtual Method which allows this method to be overridden in the child classes
+
+ Every type in .NET is implicitly inherited from the Object class and hence all the public and protected members of the object class (excluding private members) 
+are inherited into the child class and by using the child class object we can access all the public and protected members of the object class in C#. For example, 
+int is a primitive type and string a reference type and both of these two types are inherited from the Object class, and hence using the variable of int and string 
+type, we can access all the public and protected members of the object class.
+
+In other words, we can say that each and every class type (Reference Types) or struct type (Value Types) are directly or indirectly implicitly inherited from the 
+Object class in C#. Therefore, every object in C# gets the ToString method, which returns a string representation of that object. So, the ToString() method returns 
+a string that represents the current object.
+
+For example, all variables of type int or float have the ToString method, which enables them to return their contents as a string. For a better understanding, 
+please have a look at the following example. In the above example, the Number is an integer type variable and when we invoke the ToString() method on the Number 
+object, it will give us the string representation of the integer 100.
+
+Overriding the ToString() Method in C#:
+The point that you need to remember is the ToString method is defined as a Virtual Method inside the Object class and our custom Employee class is implicitly inherited from the Object class, and hence within this Employee class, we need to override the ToString method by using the override modifier.
+
+What is Equals Method in C#?
+The Equals is a virtual method defined in the Object class and this method is available to all the .NET Types as Object is the superclass of all .NET Types.
+
+What is Equals Method in C#?
+
+As Equals is a virtual method, we can also override this method under our classes. The following is the signature of this method.
+
+public virtual bool Equals(object obj): This method is used to determine whether the specified object is equal to the current object. 
+Here, the parameter obj specifies the object to compare with the current object. It returns true if the specified object is equal to the current object; 
+otherwise, false.
+Before understanding how to override and when to override, let us first understand what is the difference between the == Operator and Equals method in C#.
+
+Difference Between the “==” Operator and the Equals() Method in C#:
+As we already discussed every type in .NET, directly or indirectly inherits from the Object class. So, the Equals() virtual method, which has a default implementation
+within the Object class is also available in every .NET (Primitive as well as Reference) type via inheritance. 
+
+
+Equals method and == Operator with Enum Type in C#:
+In the following example, we compare 2 enums, and both the == operator and Equals() method return true since both direction1 and direction2 enums 
+have the same underlying integer value i.e. 1. Ang again, Enums are value type and they hold the value instead of the reference address.
+
+
+Equals method and == Operator with Reference Type in C#:
+If the type is a reference type, then by default both the == operator and Equals method check for reference equality whereas we can change this
+ default behavior of the Equals() method by overriding it to check for value equality. If this is not clear at the moment, don’t worry let us 
+understand this with an example,
+
+In the following example, C1 and C2 are 2 different object reference variables of the Customer class. But both are pointing to the same object. 
+The most important point that you need to keep in mind is reference variables are different from objects. Reference variables are created on the 
+stack memory and they point to the actual objects which are stored in the heap memory.
+
+Since, C1 and C2 both refer to the same object, the reference equality, and the value equality is true. Value equality means that two objects 
+contain the same values. In this example, the actual object is only one, so obviously, the values are also equal. If two objects have reference 
+equality, then they also have value equality, but value equality does not guarantee reference equality.
+
+
+Overriding the Equals Method of the Object Class in C#:
+we override the Equals() method of the Object class inside the Customer class. When overriding the Equals() method,
+ make sure the passed object is not null and can be cast to the type you are comparing. When overriding Equals(), you also need to override GetHashCode(), 
+otherwise you will get a compiler warning.
+
+
+Convert.ToString and ToString Method in C#
+Both these methods are used to convert a value to a string. The difference is Convert.ToString() method handles null whereas the ToString() doesn’t handle null in C#.
+
+In C# if you declare a string variable and if you don’t assign any value to that variable, then by default that variable takes a null value. In such a case, if you use the ToString() method then your program will throw the Null Reference Exception. On the other hand, if you use the Convert.ToString() method then your program will not throw an exception.
+
+
+Why do we need Checked and Unchecked Keywords in C#?
+According to MSDN, The Checked Keyword in C# is used to explicitly enable overflow checking for integral-type arithmetic operations and conversions. The Unchecked Keyword in C# is used to suppress overflow-checking for integral-type arithmetic operations and conversions.
+
+Here, overflow checking means when the value of any integral type exceeds its range, it does not raise any exception, instead it will give us unexpected or garbage results. If this is not clear at the moment, then don’t worry we will try to understand the above two points with examples.
+
+
   
 # Object Oriented Programming (OOPs) in C#
 C#.NET is a completely Object-Oriented Programming Language. It means it supports all 4 OOPs 
