@@ -1,0 +1,31 @@
+@using BOL;
+@using System.Collections.Generic;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @{
+    List<Student> stdlist = ViewData["getData"] as List<Student>;
+    <table style="width:700px">
+        <tr>
+            <th>Student id</th>
+             <th>Student name</th>
+              <th>Student marks</th>
+        </tr>
+        @foreach (Student item in stdlist)
+        {
+            <tr>
+                <td>@item.Id</td>
+                 <td>@item.Name</td>
+                  <td>@item.Marks</td>
+           </tr>
+        }   
+    </table>
+    }
+</div>
+
+
+
+
